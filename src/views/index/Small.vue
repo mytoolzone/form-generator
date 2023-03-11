@@ -39,20 +39,13 @@
         </div>
       </el-scrollbar>
     </div>
-
     <div class="center-board">
       <div class="action-bar">
+        <el-button class="copy-btn-main" icon="el-icon-document-copy" type="text" @click="copy">
+          复制表单
+        </el-button>
         <el-button icon="el-icon-video-play" type="text" @click="run">
           运行
-        </el-button>
-        <el-button icon="el-icon-view" type="text" @click="showJson">
-          查看json
-        </el-button>
-        <el-button icon="el-icon-download" type="text" @click="download">
-          导出vue文件
-        </el-button>
-        <el-button class="copy-btn-main" icon="el-icon-document-copy" type="text" @click="copy">
-          复制代码
         </el-button>
         <el-button class="delete-btn" icon="el-icon-delete" type="text" @click="empty">
           清空
@@ -251,7 +244,10 @@ export default {
     })
     const clipboard = new ClipboardJS('#copyNode', {
       text: trigger => {
-        const codeStr = this.generateCode()
+        // const codeStr = this.generateCode()
+        this.AssembleFormData()
+        const codeStr = JSON.stringify(this.formData)
+        console.log('code str', codeStr)
         this.$notify({
           title: '成功',
           message: '代码已复制到剪切板，可粘贴。',

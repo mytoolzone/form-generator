@@ -1,5 +1,6 @@
 .DS_Store
 node_modules
+qiniutempfiles.txt
 /dist
 /src/components/parser/lib
 /src/components/render/lib

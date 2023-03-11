@@ -1,14 +1,20 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '@/views/index/Home.vue'
+import Small from '@/views/index/Small.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/full',
     name: 'home',
     component: Home
+  },
+  {
+    path: '/',
+    name: 'small',
+    component: Small
   },
   {
     path: '/parser',
